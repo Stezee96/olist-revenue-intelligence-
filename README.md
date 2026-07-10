@@ -38,7 +38,7 @@ Delivery speed is a measurable driver of customer satisfaction — not a soft fa
 
 ## Dashboard
 
-![Dashboard screenshot](blueprint_dashboard/final_screenshot.png)
+![Dashboard screenshot](final_screenshot.png)
 
 A single-screen Power BI report: a KPI scorecard up top, the main delivery-vs-reviews chart, revenue broken down by category / state / time, and a summary panel stating the geography-vs-product conclusion.
 
@@ -54,19 +54,18 @@ A single-screen Power BI report: a KPI scorecard up top, the main delivery-vs-re
 
 ---
 
-## Repo structure
+## Repo contents
 
 ```
-olist_revenue_intelligence_dashboard/
-├── README.md
-├── blueprint_dashboard/     # dashboard screenshot + layout blueprint
-├── dataset/                 # raw Olist source data
-├── dbdiagram_ERD_entity_relationship_diagram/   # schema diagram (ERD)
-├── exports/                 # query result files (Q1–Q5)
-├── olist_revenue_database/  # PostgreSQL schema + analysis queries
-├── phases/                  # project phase documentation (1–4)
-├── powerbi/                 # Power BI report (.pbix) + custom theme
-└── powerpoint/              # executive briefing deck
+README.md                    # this file
+final_screenshot.png         # dashboard screenshot
+blueprint_dashboard.png      # dashboard layout blueprint
+olist_PostgreSQL.sql         # schema + analysis queries
+olist_theme.json             # custom Power BI theme
+olist_logo.jpeg              # brand asset used in the dashboard
+olist_revenue_powerpoint.pptx  # executive briefing deck
+exports/                     # query result files (Q1–Q5)
+dbdiagram_ERD.../            # schema diagram (ERD)
 ```
 
 ---
