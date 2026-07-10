@@ -20,7 +20,7 @@ An end-to-end analytics project on the [Brazilian Olist e-commerce dataset](http
 
 ---
 
-## The delivery to reviews story (headline insight)
+## The delivery to reviews story
 
 The strongest finding is a clean staircase: as delivery time rises, review scores fall.
 
