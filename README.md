@@ -20,7 +20,7 @@ An end-to-end analytics project on the [Brazilian Olist e-commerce dataset](http
 
 ---
 
-## The delivery to reviews story
+## The delivery-to-reviews story
 
 The strongest finding is a clean staircase: as delivery time rises, review scores fall.
 
@@ -38,7 +38,7 @@ Delivery speed is a measurable driver of customer satisfaction — not a soft fa
 
 ## Dashboard
 
-![Dashboard screenshot](final_screenshot.png)
+![Dashboard screenshot](blueprint_dashboard/final_screenshot.png)
 
 A single-screen Power BI report: a KPI scorecard up top, the main delivery-vs-reviews chart, revenue broken down by category / state / time, and a summary panel stating the geography-vs-product conclusion.
 
@@ -48,23 +48,26 @@ A single-screen Power BI report: a KPI scorecard up top, the main delivery-vs-re
 
 - **PostgreSQL** — 8-table relational schema, composite keys, foreign-key constraints
 - **SQL** — joins, CTEs, subqueries, aggregation, date functions
-- **Power BI** — DAX measures (TOPN, SUMMARIZE/SUMX, DISTINCTCOUNT, DIVIDE), Power Query cleaning, custom brand theme
+- **Power BI** — DAX measures (TOPN, DATEDIFF, DIVIDE, SUM, AVERAGE), Power Query cleaning, custom brand theme
 - **Excel** — pivot tables, lookups, conditional formatting (earlier analysis phase)
+- **PowerPoint** — executive briefing deck
 
 ---
 
 ## Repo structure
 
-\`\`\`
-olist-revenue-intelligence/
+```
+olist_revenue_intelligence_dashboard/
 ├── README.md
-├── olist_PostgreSQL.sql     # schema + analysis queries
-├── olist_theme.json         # custom Power BI theme
-├── final_screenshot.png     # dashboard screenshot
-├── blueprint_dashboard.png  # dashboard layout blueprint
-├── exports/                 # query result files (Q1-Q5)
-└── dbdiagram_ERD.../        # schema diagram (ERD + SQL)
-\`\`\`
+├── blueprint_dashboard/     # dashboard screenshot + layout blueprint
+├── dataset/                 # raw Olist source data
+├── dbdiagram_ERD_entity_relationship_diagram/   # schema diagram (ERD)
+├── exports/                 # query result files (Q1–Q5)
+├── olist_revenue_database/  # PostgreSQL schema + analysis queries
+├── phases/                  # project phase documentation (1–4)
+├── powerbi/                 # Power BI report (.pbix) + custom theme
+└── powerpoint/              # executive briefing deck
+```
 
 ---
 
