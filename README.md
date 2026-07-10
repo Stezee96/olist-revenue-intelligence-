@@ -40,7 +40,7 @@ Delivery speed is a measurable driver of customer satisfaction — not a soft fa
 
 ![Dashboard screenshot](final_screenshot.png)
 
-A single-screen Power BI report: KPI scorecard, hero delivery-vs-reviews chart, revenue by category/state/time, and a synthesis panel stating the geography-vs-product conclusion. Styled with a custom theme built from Olist's brand palette.
+A single-screen Power BI report: a KPI scorecard up top, the main delivery-vs-reviews chart, revenue broken down by category / state / time, and a summary panel stating the geography-vs-product conclusion.
 
 ---
 
