@@ -1,0 +1,125 @@
+{
+    "name": "Olist Revenue Intelligence",
+    "dataColors": [
+        "#001647",
+        "#D2B5A1",
+        "#33507A",
+        "#8B6F5C",
+        "#667EAA",
+        "#B7950B",
+        "#5C6B8A",
+        "#A0876F"
+    ],
+    "foreground": "#001647",
+    "foregroundNeutralSecondary": "#4B5058",
+    "foregroundNeutralTertiary": "#8A8F98",
+    "background": "#FFFFFF",
+    "backgroundLight": "#F5F3F0",
+    "backgroundNeutral": "#E5E7EB",
+    "tableAccent": "#001647",
+    "good": "#3A8A3A",
+    "neutral": "#B7950B",
+    "bad": "#C0392B",
+    "maximum": "#001647",
+    "center": "#D2B5A1",
+    "minimum": "#F5F3F0",
+    "null": "#E5E7EB",
+    "textClasses": {
+        "title": {
+            "fontFace": "Segoe UI Semibold",
+            "fontSize": 14,
+            "color": "#001647"
+        },
+        "header": {
+            "fontFace": "Segoe UI Semibold",
+            "fontSize": 12,
+            "color": "#001647"
+        },
+        "label": {
+            "fontFace": "Segoe UI",
+            "fontSize": 10,
+            "color": "#4B5058"
+        },
+        "callout": {
+            "fontFace": "Segoe UI Semibold",
+            "fontSize": 28,
+            "color": "#001647"
+        }
+    },
+    "visualStyles": {
+        "*": {
+            "*": {
+                "background": [
+                    {
+                        "show": true,
+                        "color": {
+                            "solid": {
+                                "color": "#FFFFFF"
+                            }
+                        },
+                        "transparency": 0
+                    }
+                ],
+                "border": [
+                    {
+                        "show": true,
+                        "color": {
+                            "solid": {
+                                "color": "#E5E7EB"
+                            }
+                        },
+                        "radius": 8
+                    }
+                ],
+                "visualHeader": [
+                    {
+                        "show": true,
+                        "background": {
+                            "solid": {
+                                "color": "#FFFFFF"
+                            }
+                        },
+                        "foreground": {
+                            "solid": {
+                                "color": "#8A8F98"
+                            }
+                        }
+                    }
+                ],
+                "title": [
+                    {
+                        "show": true,
+                        "fontColor": {
+                            "solid": {
+                                "color": "#001647"
+                            }
+                        },
+                        "fontSize": 14,
+                        "fontFamily": "Segoe UI Semibold",
+                        "alignment": "left"
+                    }
+                ],
+                "spacing": [
+                    {
+                        "customizeSpacing": true,
+                        "spaceBelowTitle": 8
+                    }
+                ]
+            }
+        },
+        "page": {
+            "*": {
+                "background": [
+                    {
+                        "color": {
+                            "solid": {
+                                "color": "#F5F3F0"
+                            }
+                        },
+                        "transparency": 0
+                    }
+                ]
+            }
+        }
+    }
+}
