@@ -19,3 +19,13 @@ print("Missing product categories:", df['product_category'].isnull().sum())
 print()
 print("Bad review counts:")
 print(df['bad_review'].value_counts())
+
+#Step 3 — Feature Engineering 
+print()
+#dropping duplicate order IDs,446 duplicates 
+df = df.drop_duplicates(subset=['order_id'])
+print("Rows after dropping duplicate order IDs:", df.shape[0])
+
+#filling missing categories, 1273
+df['product_category'] = df['product_category'].fillna('Unknown')
+print("Missing product categories remaining:", df['product_category'].isnull().sum())
