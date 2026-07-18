@@ -29,3 +29,26 @@ print("Rows after dropping duplicate order IDs:", df.shape[0])
 #filling missing categories, 1273
 df['product_category'] = df['product_category'].fillna('Unknown')
 print("Missing product categories remaining:", df['product_category'].isnull().sum())
+
+#step 3: encoding the text columns into numbers
+df['different_state'] = (df['customer_state'] != df['seller_state']).astype(int) # Comparing the state columns and producing t or f
+print()
+print("Orders shipped across states:", df['different_state'].sum())
+
+#text to number
+df_encoded = pd.get_dummies(df, columns=['product_category', 'customer_state', 'seller_state'], drop_first=True) #drop_first avoids dummy varriable 
+print()
+print("Shape before endoding:", df.shape)
+print("Shape after encoding:", df_encoded.shape)
+
+#Splitting into features (x) and target (y)
+X = df_encoded.drop(columns=['order_id', 'bad_review']) 
+y = df_encoded['bad_review']
+
+print ()
+print("Features shape (X):", X.shape)
+print("Target shape (y):", y.shape)
+
+output_path = os.path.join(script_folder, "..", "data", "processed_features.csv")
+df_encoded.to_csv(output_path, index=False)
+print("Saved processed data to:", output_path)
