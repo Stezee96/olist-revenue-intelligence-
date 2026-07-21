@@ -20,6 +20,23 @@ print("TRAIN/TEST SPLIT RESULTS")
 print("="*40)
 print(f"Training set size: {x_train.shape}")
 print(f"Test set size: {x_test.shape}")
-print(f"Bad review rate (train): {y_train.mean():.2%}")
+print(f"Bad review rate (train): {y_train.mean():.2%}") #removes the decimal and converts to percentage, 0.14 becomes 14%
 print(f"Bad review rate (test):  {y_test.mean():.2%}")
-print("Actual bad review rate in full dataset:", y.mean()) #just fo rm eto confirm the numbers are right, should be 0.14 or 14%
+print("Actual bad review rate in full dataset:", y.mean()) #just form eto confirm the numbers are right, should be 0.14 or 14%
+
+#step 5: train the first model
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+x_train_scaled = scaler.fit_transform(x_train)
+x_test_scaled = scaler.transform(x_test)
+
+model = LogisticRegression(class_weight='balanced', max_iter=1000) #class_weight='balanced' tells the model to pay more attention to the minority class (bad reviews) during training, max_iter=1000 increases the number of iterations for convergence
+model.fit(x_train_scaled, y_train) 
+
+print("\n" + "="*40) #divider line for clarity in the console output
+print("MODEL TRAINING RESULTS")
+print("="*40) #mistake in the code, should be print("="*40) 
+print("Model type:", type(model).__name__) #pprint name 
+
