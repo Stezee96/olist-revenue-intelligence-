@@ -40,3 +40,23 @@ print("MODEL TRAINING RESULTS")
 print("="*40) #mistake in the code, should be print("="*40) 
 print("Model type:", type(model).__name__) #pprint name 
 
+#Step 6: Evaluate the model on the test set
+from sklearn.metrics import classification_report, confusion_matrix
+
+y_pred = model.predict(x_test_scaled) #model looks at the test set and predicts whether each order is a bad review or not, based on the features it learned during training. 0 or 1 for each order in the test set.
+cm = confusion_matrix(y_test, y_pred)
+
+print("Confusion Matrix:")
+print(f"{'':20} {'Predicted GOOD':>15} {'Predicted BAD':>15}") #ADDED HEADER FOR CLARITY OVER THE CONFUSION MATRIX
+print(f"{'Actually GOOD':20} {cm[0,0]:>15} {cm[0,1]:>15}")
+print(f"{'Actually BAD':20} {cm[1,0]:>15} {cm[1,1]:>15}")
+
+print()
+print("Classification Report:")
+print(classification_report(y_test, y_pred))
+
+from sklearn.metrics import roc_auc_score
+
+y_prob = model.predict_proba(x_test_scaled)[:, 1] #predict_proba returns the probability of each class (good or bad review)
+auc = roc_auc_score(y_test, y_prob) #roc_auc_score calculates the area under the ROC curve
+print(f"ROC AUC Score: {auc:.3f}")
