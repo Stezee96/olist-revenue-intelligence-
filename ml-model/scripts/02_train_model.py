@@ -60,3 +60,31 @@ from sklearn.metrics import roc_auc_score
 y_prob = model.predict_proba(x_test_scaled)[:, 1] #predict_proba returns the probability of each class (good or bad review)
 auc = roc_auc_score(y_test, y_prob) #roc_auc_score calculates the area under the ROC curve
 print(f"ROC AUC Score: {auc:.3f}")
+
+#back to step 5b WHY?: We already have a simple model that works okay.
+#Now we try a stronger one on the exact same data to see if it does better. Whichever wins, we keep.
+
+#Step 5b: train a possible stronger model
+from sklearn.ensemble import RandomForestClassifier
+rf_model = RandomForestClassifier(
+    n_estimators=100, #number of trees in the forest
+    class_weight='balanced', #analysis bad reviews more heavily
+    random_state=42, 
+    n_jobs=-1 
+)
+rf_model.fit(x_train_scaled, y_train)
+
+rf_pred = rf_model.predict(x_test_scaled)
+rf_prob = rf_model.predict_proba(x_test_scaled)[:, 1]
+
+print("\n" + "="*40) #diveder line
+print("RANDOM FOREST MODEL RESULTS")
+print("="*40) 
+
+rf_cm = confusion_matrix(y_test, rf_pred)
+print(f"{'':20} {'Predicted GOOD':>15} {'Predicted BAD':>15}")
+print(f"{'Actually GOOD':20} {rf_cm[0,0]:>15} {rf_cm[0,1]:>15}")
+print(f"{'Actually BAD':20} {rf_cm[1,0]:>15} {rf_cm[1,1]:>15}")
+print()
+print(classification_report(y_test, rf_pred))
+print(f"ROC AUC Score: {roc_auc_score(y_test, rf_prob):.3f}")
