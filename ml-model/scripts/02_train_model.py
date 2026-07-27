@@ -59,6 +59,7 @@ from sklearn.metrics import roc_auc_score
 
 y_prob = model.predict_proba(x_test_scaled)[:, 1] #predict_proba returns the probability of each class (good or bad review)
 auc = roc_auc_score(y_test, y_prob) #roc_auc_score calculates the area under the ROC curve
+<<<<<<< HEAD
 print(f"ROC AUC Score: {auc:.3f}")
 
 #back to step 5b WHY?: We already have a simple model that works okay.
@@ -88,3 +89,6 @@ print(f"{'Actually BAD':20} {rf_cm[1,0]:>15} {rf_cm[1,1]:>15}")
 print()
 print(classification_report(y_test, rf_pred))
 print(f"ROC AUC Score: {roc_auc_score(y_test, rf_prob):.3f}")
+=======
+print(f"ROC AUC Score: {auc:.3f}")
+>>>>>>> 800d6319116dfa2f92690a5c01908927be8c28ad
