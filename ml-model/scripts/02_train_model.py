@@ -59,7 +59,7 @@ from sklearn.metrics import roc_auc_score
 
 y_prob = model.predict_proba(x_test_scaled)[:, 1] #predict_proba returns the probability of each class (good or bad review)
 auc = roc_auc_score(y_test, y_prob) #roc_auc_score calculates the area under the ROC curve
-<<<<<<< HEAD
+
 print(f"ROC AUC Score: {auc:.3f}")
 
 #back to step 5b WHY?: We already have a simple model that works okay.
@@ -89,6 +89,28 @@ print(f"{'Actually BAD':20} {rf_cm[1,0]:>15} {rf_cm[1,1]:>15}")
 print()
 print(classification_report(y_test, rf_pred))
 print(f"ROC AUC Score: {roc_auc_score(y_test, rf_prob):.3f}")
-=======
-print(f"ROC AUC Score: {auc:.3f}")
->>>>>>> 800d6319116dfa2f92690a5c01908927be8c28ad
+
+#step 7: which feattures are most important to the model?
+import matplotlib
+matplotlib.use('Agg') #tells matplotlib to not try to open a window for the plot, which can cause errors in some environments
+import matplotlib.pyplot as plt
+
+importances = pd.Series(rf_model.feature_importances_, index=x.columns) #feature_importances_ is an attribute of the trained Random Forest model that gives the importance of each feature in making predictions
+top15 = importances.sort_values(ascending=False).head(15)
+
+plt.figure(figsize=(10, 6))
+top15.sort_values(ascending=True).plot(kind='barh')
+plt.title("Top 15 Features Predicting Bad Reviews")
+plt.xlabel("Importance")
+plt.tight_layout()
+
+output_path = os.path.join(script_folder, "..", "outputs", "feature_importances.png")
+os.makedirs(os.path.dirname(output_path), exist_ok=True) #making output folder
+plt.savefig(output_path, dpi=150) #saves the plot to a file with high resolution
+print(f"\nChart savewd to: {output_path}")
+
+print("\n" + "="*40)
+print("TOP 15 FEATURES")
+print("="*40)
+for name, score in top15.items():
+    print(f"{name:35} {score:.4f}")
