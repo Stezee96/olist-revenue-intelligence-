@@ -3,8 +3,15 @@
 An end-to-end analytics project on the [Brazilian Olist e-commerce dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce): from raw data to a decision-ready Power BI dashboard. Built to answer one question — **what drives revenue and customer satisfaction across Brazil?** — and to translate each finding into an action a manager can take.
 
 > **Note:** Personal learning project using the public Olist dataset. Not affiliated with or endorsed by Olist.
-
 ---
+
+## Part 2 — Predictive modeling
+
+Part 1 found that slow delivery drives bad reviews. Part 2 turns that into a working prediction: a classifier that flags orders heading for a 1–2 star review **before it happens**, so a business can intervene while the order is still in transit.
+
+**Key result:** across 126 features, *lateness against the promised delivery date* is the #1 predictor — outranking raw delivery speed. Customers react to broken promises, not clock time.
+
+**→ [Full writeup, results, and code](ml-model/)**
 
 ## The headline findings
 
@@ -51,6 +58,7 @@ A single-screen Power BI report: a KPI scorecard up top, the main delivery-vs-re
 - **Power BI** — DAX measures (TOPN, DATEDIFF, DIVIDE, SUM, AVERAGE), Power Query cleaning, custom brand theme
 - **Excel** — pivot tables, lookups, conditional formatting (earlier analysis phase)
 - **PowerPoint** — executive briefing deck
+- **Python** — pandas, scikit-learn (feature engineering, classification, model evaluation)
 
 ---
 
@@ -65,6 +73,7 @@ olist_theme.json             # custom Power BI theme
 olist_logo.jpeg              # brand asset used in the dashboard
 olist_revenue_powerpoint.pptx  # executive briefing deck
 exports/                     # query result files (Q1–Q5)
+ml-model/                    # Part 2: predictive modeling (Python, scikit-learn)
 dbdiagram_ERD.../            # schema diagram (ERD)
 ```
 
@@ -76,6 +85,7 @@ dbdiagram_ERD.../            # schema diagram (ERD)
 2. **Cleaning & validation** — staging tables, fixed encoding/duplicate/orphan issues in SQL, row-count checks with zero rows deleted
 3. **SQL analysis + Excel** — computed the five findings, verified against the locked revenue figure
 4. **Communication & storytelling** — Power BI dashboard, this repo, and a PowerPoint briefing
+5. **Predictive modeling** — engineered 126 features, trained and evaluated classifiers in scikit-learn to predict bad reviews before they occur
 
 ---
 
