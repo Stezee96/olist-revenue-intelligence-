@@ -3,6 +3,7 @@
 An end-to-end analytics project on the [Brazilian Olist e-commerce dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce): from raw data to a decision-ready Power BI dashboard. Built to answer one question — **what drives revenue and customer satisfaction across Brazil?** — and to translate each finding into an action a manager can take.
 
 > **Note:** Personal learning project using the public Olist dataset. Not affiliated with or endorsed by Olist.
+
 ---
 
 ## Part 2 — Predictive modeling
@@ -12,6 +13,8 @@ Part 1 found that slow delivery drives bad reviews. Part 2 turns that into a wor
 **Key result:** across 126 features, *lateness against the promised delivery date* is the #1 predictor — outranking raw delivery speed. Customers react to broken promises, not clock time.
 
 **→ [Full writeup, results, and code](ml-model/)**
+
+---
 
 ## The headline findings
 
