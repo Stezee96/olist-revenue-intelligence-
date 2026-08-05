@@ -99,8 +99,10 @@ importances = pd.Series(rf_model.feature_importances_, index=x.columns) #feature
 top15 = importances.sort_values(ascending=False).head(15)
 
 plt.figure(figsize=(10, 6))
-top15.sort_values(ascending=True).plot(kind='barh')
-plt.title("Top 15 Features Predicting Bad Reviews")
+delivery_features = ['lateness', 'delivery_days', 'is_late']
+colors = ['#1f77b4' if f in delivery_features else '#cccccc' for f in top15.sort_values(ascending=True).index]
+top15.sort_values(ascending=True).plot(kind='barh', color=colors)
+plt.title("Delivery timing dominates: lateness is the #1 predictor of bad reviews")
 plt.xlabel("Importance")
 plt.tight_layout()
 
