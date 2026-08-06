@@ -6,7 +6,7 @@ An end-to-end analytics project on the [Brazilian Olist e-commerce dataset](http
 
 ---
 
-## Part 2 — Predictive modeling
+## Predictive modeling
 
 Part 1 found that slow delivery drives bad reviews. Part 2 turns that into a working prediction: a classifier that flags orders heading for a 1–2 star review **before it happens**, so a business can intervene while the order is still in transit.
 
