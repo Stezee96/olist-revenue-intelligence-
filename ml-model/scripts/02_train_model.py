@@ -116,3 +116,19 @@ print("TOP 15 FEATURES")
 print("="*40)
 for name, score in top15.items():
     print(f"{name:35} {score:.4f}")
+
+#Step 9: Export risk scores for the dashboard
+scored = x_test.copy() #copy the test set features to a new dataframe
+scored['risk_score'] = y_prob #add the predicted probabilities of bad reviews as a new column called 'risk_score'
+scored['actual_bad_review'] = y_test.values #add the actual bad review labels to
+
+original = pd.read_csv(os.path.join(script_folder, "..", "data", "order_features.csv")) #read the original data to get order_id
+original = original.drop_duplicates(subset='order_id') 
+scored = scored.join(original.set_index(original.index)[['order_id', 'customer_state', 'product_category']])
+
+output = scored[['order_id', 'customer_state', 'product_category', 'delivery_days', 'lateness', 'risk_score', 'actual_bad_review']]
+
+scores_path = os.path.join(script_folder, "..", "outputs", "scored_orders.csv")
+output.to_csv(scores_path, index=False)
+print(f"\nScored orders saved to: {scores_path}")
+print(f"Rows Exported: {len(output)}")
