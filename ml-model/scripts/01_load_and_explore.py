@@ -52,3 +52,7 @@ print("Target shape (y):", y.shape)
 output_path = os.path.join(script_folder, "..", "data", "processed_features.csv")
 df_encoded.to_csv(output_path, index=False)
 print("Saved processed data to:", output_path)
+
+print("Missing customer_state:", df['customer_state'].isnull().sum())
+print("Missing seller_state:", df['seller_state'].isnull().sum())
+
