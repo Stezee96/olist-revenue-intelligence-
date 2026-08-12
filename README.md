@@ -1,4 +1,4 @@
-# Olist Revenue Intelligence Dashboard
+# E-COMMERCE ANALYTICS & PREDICTIVE MODELING
 
 An end-to-end analytics project on the [Brazilian Olist e-commerce dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce): from raw data to a decision-ready Power BI dashboard. Built to answer one question — **what drives revenue and customer satisfaction across Brazil?** — and to translate each finding into an action a manager can take.
 
